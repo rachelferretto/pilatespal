@@ -14,7 +14,10 @@
 
 </div>
 
-
+<form action ="/exercises/<%= @exercise['id'] %>" method= "post"> 
+    <input type="hidden" name="_method" value = "delete">
+    <button>Delete exercise</button>
+</form>
 
 
 
@@ -34,7 +37,9 @@
 
 <p><%= comment['comment_time']%></p>
 
-<a href="/comment/<%= params[:id] %>"> Delete Comment </a>
-
+<form action ="/comments/<%=comment['id'] %>" method= "post"> 
+    <input type="hidden" name="_method" value = "delete">
+    <button>Delete comment</button>
+</form>
 <p> Posted by <%= %> </p>
 <% end %>

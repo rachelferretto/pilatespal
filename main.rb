@@ -27,10 +27,10 @@ post '/exercises' do
   exercise = Exercise.new
   exercise.name = params[:name]
   exercise.image_url = params[:image_url]
-  exercise.image_url = params[:level]
-  exercise.image_url = params[:reps]
-  exercise.image_url = params[:muscle_groups]
-  exercise.image_url = params[:description]
+  exercise.level = params[:level]
+  exercise.reps = params[:reps]
+  exercise.muscle_groups = params[:muscle_groups]
+  exercise.description = params[:description]
   exercise.save
   redirect '/'
 end
@@ -44,6 +44,11 @@ get '/exercises/:id' do
   erb :exercise_details
 end
 
+delete '/exercises/:id' do
+  exercise = Exercise.find( params[:id])
+  exercise.destroy
+  redirect '/'
+end
 
 
 post '/comments' do
@@ -52,7 +57,13 @@ post '/comments' do
   comment.exercise_id = params[:exercise_id]
   comment.comment_time = Time.now.strftime("%H:%M %-d %b %y")
   comment.save
-  redirect "/exercises/#{params[:exercise_id] }"
+  redirect "/exercises/#{params[:exercise_id]}"
+end
+
+delete '/comments/:id' do
+  comment = Comment.find(params[:id])
+  comment.destroy
+  redirect "/"
 end
 
 
