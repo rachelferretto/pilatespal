@@ -13,11 +13,17 @@
     </ul>
 
 </div>
+<span> Exercise posted by <%= @exercise.user.email %>&hearts;</span>
+<div>
+    <button> Save to myProgram</button>
+
+<div>
 
 <form action ="/exercises/<%= @exercise['id'] %>" method= "post"> 
     <input type="hidden" name="_method" value = "delete">
     <button>Delete exercise</button>
 </form>
+
 
 <form action ="/exercises/<%= @exercise['id']%>/edit" method= "put"> 
     <input type="hidden" name="_method" value = "<%= @exercise['id']%>">
@@ -36,7 +42,7 @@
 
 <p>COMMENTS: </p>
     <% @comments.each do |comment| %>
-<p>
+<p><%= comment.user.email %>: 
     <%= comment['content']  %> </p><br>
 
 <p><%= comment['comment_time']%></p>
@@ -45,5 +51,5 @@
     <input type="hidden" name="_method" value = "delete">
     <button>Delete comment</button>
 </form>
-<p> Posted by <%= %> </p>
+
 <% end %>
