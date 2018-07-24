@@ -1,7 +1,6 @@
-
-
 <h2>Exercises</h2>
 
+<p>can't find what you're looking for?</p>
 <a href="/exercises/new"><button>Add an exercise for the PilatesPal community!</button></a> <br>
 
 
@@ -9,12 +8,14 @@
 
 <div class ='wrapper'>
     <div class='exercises'>
+
     <% @exercises.each do |exercise| %>
 
         <a href="/exercises/<%= exercise.id %>">
-        <%= exercise.name %></a>
+        <%= exercise.name %><br>
 
         <img class ="thumbnails" src= "<%= exercise.image_url%>">
+        <br></a>
     <% end %>
     </div>
 </div>

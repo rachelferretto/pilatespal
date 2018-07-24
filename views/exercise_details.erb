@@ -4,7 +4,7 @@
 
 
 <div class='instructions'>
-  <p> Details: </p>
+  <h4> EXERCISE DETAILS: </h4>
     <ul>
         <li>Level: <%= @exercise['level']%></li>
         <li>Focus Areas: <%= @exercise['muscle_groups']%></li>
@@ -13,43 +13,54 @@
     </ul>
 
 </div>
-<span> Exercise posted by <%= @exercise.user.email %>&hearts;</span>
-<div>
+<div class="save">
     <button> Save to myProgram</button>
 
-<div>
+</div>
 
-<form action ="/exercises/<%= @exercise['id'] %>" method= "post"> 
-    <input type="hidden" name="_method" value = "delete">
-    <button>Delete exercise</button>
+<span> Exercise posted by <%= @exercise.user.email %>&hearts;</span>
+
+<p><%= @exercise.likes.count%> Likes</p>
+
+<form action="/likes" method="post">
+    <input type="hidden" name="exercise_id" value="<%= @exercise.id %>">
+    <button>Like</button>
 </form>
 
+<div class="options">
 
-<form action ="/exercises/<%= @exercise['id']%>/edit" method= "put"> 
-    <input type="hidden" name="_method" value = "<%= @exercise['id']%>">
-    <button>Update/amend exercise</button>
-</form>
+    <form action ="/exercises/<%= @exercise['id']%>/edit" method= "put"> 
+        <input type="hidden" name="_method" value = "<%= @exercise['id']%>">
+        <button>Update/amend exercise</button>
+    </form>
 
+    <form action ="/exercises/<%= @exercise['id'] %>" method= "post"> 
+        <input type="hidden" name="_method" value = "delete">
+        <button>Delete exercise</button>
+    </form>
 
+</div>
+
+<div class="add-comment">
 <form action="/comments" method= "post">
 <input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
-    <label for=""> What do you think? </label>
-    <textarea name="content"></textarea>
+    <label for=""> What do you think? </label><br>
+    <textarea name="content"></textarea><br>
     <button> Post </button>
     </form>
+</div>
 
 
 
 <p>COMMENTS: </p>
     <% @comments.each do |comment| %>
-<p><%= comment.user.email %>: 
-    <%= comment['content']  %> </p><br>
-
-<p><%= comment['comment_time']%></p>
-
-<form action ="/comments/<%=comment['id'] %>" method= "post"> 
-    <input type="hidden" name="_method" value = "delete">
-    <button>Delete comment</button>
-</form>
-
+<p> "<%= comment['content'] %>" 
+    <span>- <%= comment.user.email %></span>
+</p>
+<p><%= comment['comment_time']%>
+    <form action ="/comments/<%=comment['id'] %>" method= "post"> 
+        <input type="hidden" name="_method" value = "delete">
+        <button>Delete comment</button>
+    </form>
+</p>
 <% end %>

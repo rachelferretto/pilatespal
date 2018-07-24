@@ -34,12 +34,17 @@ get '/' do
   erb :index
 end
 
+get '/about' do
+  erb :about
+end
 
 get '/exercises/new' do
+  redirect '/login' unless logged_in?
   erb :new
 end
 
 post '/exercises' do
+  redirect '/login' unless logged_in?
   exercise = Exercise.new
   exercise.name = params[:name]
   exercise.image_url = params[:image_url]
@@ -55,6 +60,7 @@ end
 
 
 get '/exercises/:id' do
+  redirect '/login' unless logged_in?
   @exercise = Exercise.find(params[:id])
   @comments = @exercise.comments
   erb :exercise_details
@@ -84,6 +90,11 @@ put '/exercises/:id' do
   redirect "/exercises/#{params[:id]}"
 end
 
+get '/signup' do
+  
+  erb :signup
+end
+
 
 
 post '/comments' do
@@ -92,6 +103,7 @@ post '/comments' do
   comment.content = params[:content]
   comment.exercise_id = params[:exercise_id]
   comment.comment_time = Time.now.strftime("%H:%M %-d %b %y")
+  comment.user_id = current_user.id
   comment.save
   redirect "/exercises/#{params[:exercise_id]}"
 end
@@ -99,20 +111,24 @@ end
 delete '/comments/:id' do
   comment = Comment.find(params[:id])
   comment.destroy
-  redirect "/"
+  redirect "/exercises/#{params[:exercise_id]}"
 end
 
 post '/likes' do
+  redirect '/login' unless logged_in?
   like = Like.new
-  like.dish_id = params[:dish_id]
+  like.exercise_id = params[:exercise_id]
   like.user_id = current_user.id
   like.save
 
-  redirect "/dishes/#{params[:dish_id]}"
+  redirect "/exercises/#{params[:exercise_id]}"
 end
 
 
 get '/login' do 
+  if logged_in?
+    redirect '/'
+  end
   erb :login
 end
 
@@ -130,6 +146,9 @@ delete '/session' do
   session[:user_id] = nil
   redirect '/login'
 end
+
+
+
 
 
 

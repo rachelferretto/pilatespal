@@ -1,4 +1,51 @@
+* {
+    box-sizing: border-box;
+}
 
+
+body {
+    font-family: 'Anaheim', sans-serif;
+    padding: 5px;
+    font-size: 18px;
+}
+header {
+    text-align: center;
+}
+
+.current-user {
+    text-align: right;
+    padding: 10px;
+}
+aside {
+    display: block;
+    float: right;
+    padding: 5px;
+}
+
+h1 {
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 55px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+    padding: 5px;
+}
+
+nav ul li {
+    display: inline;
+    color: lightslategray;
+    padding: 10px;
+}
+
+
+
+a {
+    display: inline;
+    text-decoration: none;
+    color: grey;
+}
 
 .wrapper {
     display: flex;
@@ -11,22 +58,61 @@
     margin: auto;
     text-align: center;
 }
-
 .exercises a {
     height: 30%;
     width: 30%;
+    font-size: 20px;
 }
+
+
 img.thumbnails {
-    max-height: 20%;
-    max-width: 20%;
+    max-height: 95%;
+    max-width: 95%;
     border-radius: 5px; 
 }
 
 
-
+span {
+    color: lightslategray;
+}
 
 button {
-    padding: 5px;
+    padding: 7px;
     margin: 5px;
     border-radius: 5px;
+    font-family: 'Anaheim', sans-serif;
+    font-size: 14px;
 }
+
+p {
+    font-size: 18px;
+}
+
+
+.login {
+    text-align: center;
+}
+
+input {
+    margin: 10px;
+    padding: 5px;
+}
+
+.options {
+   text-align: right;
+   margin-right: 2vw;
+}
+
+.add-comment {
+    text-align: center;
+    padding: 20px;
+}
+
+footer {
+    clear: both;
+}
+
+.new {
+    padding: 10px;
+}
+

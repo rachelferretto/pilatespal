@@ -1,32 +1,33 @@
 <h2> Add a new exercise to the myPilatesPal community</h2>
+<div class="new">
+    <form action='/exercises' method="post"> 
+        <label for=""> Exercise name:</label>
+        <br>
+        <input type = "text" name="name">
+        <br>
+        <label for=""> Image URL:</label>
+        <br>
+        <input type = "text" name="image_url">
+        <br>
+        <label for=""> Level (Beginner, Intermediate or Advanced?):</label>
+        <br>
+        <input type = "text" name="level">
+        <br>
+        <label for=""> Targeted Muscles/Focus areas:</label>
+        <br>
+        <input type = "text" name="muscle_groups">
+        <br>
+        <label for=""> Reps:</label>
+        <br>
+        <input type = "text" name="reps">
+        <br>
+        <label for=""> Instructions:</label>
+        <br>
+        <textarea name="description"></textarea>
+        <br>
 
-<form action='/exercises' method="post"> 
-    <label for=""> Exercise name:</label>
-    <br>
-    <input type = "text" name="name">
-    <br>
-    <label for=""> Image URL:</label>
-    <br>
-    <input type = "text" name="image_url">
-    <br>
-    <label for=""> Level (Beginner, Intermediate or Advanced?):</label>
-    <br>
-    <input type = "text" name="level">
-    <br>
-    <label for=""> Targeted Muscles/Focus areas:</label>
-    <br>
-    <input type = "text" name="muscle_groups">
-    <br>
-    <label for=""> Reps:</label>
-    <br>
-    <input type = "text" name="reps">
-    <br>
-    <label for=""> Instructions:</label>
-    <br>
-    <textarea name="description"></textarea>
-    <br>
 
 
-
-    <button> Share exercise! </button>
-</form>
+        <button> Share exercise! </button>
+    </form>
+</div>
