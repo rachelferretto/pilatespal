@@ -19,6 +19,10 @@
     <button>Delete exercise</button>
 </form>
 
+<form action ="/exercises/<%= @exercise['id']%>/edit" method= "put"> 
+    <input type="hidden" name="_method" value = "<%= @exercise['id']%>">
+    <button>Update/amend exercise</button>
+</form>
 
 
 <form action="/comments" method= "post">

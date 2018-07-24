@@ -39,16 +39,34 @@ end
 
 
 get '/exercises/:id' do
-  @exercise = Exercise.find( params[:id] )
+  @exercise = Exercise.find(params[:id])
   @comments = @exercise.comments
   erb :exercise_details
 end
 
 delete '/exercises/:id' do
-  exercise = Exercise.find( params[:id])
+  exercise = Exercise.find(params[:id])
   exercise.destroy
   redirect '/'
 end
+
+get '/exercises/:id/edit' do
+  @exercise = Exercise.find(params[:id])
+  erb :edit
+end
+
+put '/exercises/:id' do
+  exercise = Exercise.find(params[:id])
+  exercise.name = params[:name]
+  exercise.image_url = params[:image_url]
+  exercise.level = params[:level]
+  exercise.reps = params[:reps]
+  exercise.muscle_groups = params[:muscle_groups]
+  exercise.description = params[:description]
+  exercise.save
+  redirect "/exercises/#{params[:id]}"
+end
+
 
 
 post '/comments' do

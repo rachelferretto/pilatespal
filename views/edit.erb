@@ -1,6 +1,6 @@
-<h2> Edit Excercise </h2>
+<h2> Edit Exercise </h2>
 
-<form action='/exercises/<% @exercise['id']%>' method="post"> 
+<form action='/exercises/<%= @exercise['id']%>' method="post"> 
     <input type = "hidden" name="_method" value="put">
     <label for=""> Exercise name: </label>
     <br>
@@ -12,19 +12,19 @@
     <br>
     <label for=""> Level (Beginner, Intermediate or Advanced?): </label>
     <br>
-    <input type = "text" name="level">
+    <input type = "text" name="level" value="<% @exercise['level']%>">
     <br>
     <label for=""> Targeted Muscles/Focus areas: </label>
     <br>
-    <input type = "text" name="muscle_groups">
+    <input type = "text" name="muscle_groups" value="<% @exercise['muscle_groups']%>">
     <br>
     <label for=""> Reps: </label>
     <br>
-    <input type = "text" name="reps">
+    <input type = "text" name="reps" value="<% @exercise['reps']%>">
     <br>
     <label for=""> Instructions:</label>
     <br>
-    <textarea name="description"></textarea>
+    <textarea name="description" value="<% @exercise['description']%>"></textarea>
     <br>
 
 
