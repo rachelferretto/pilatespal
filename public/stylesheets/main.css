@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.exercises {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    text-align: center;
+}
+
+.exercises a {
+    height: 30%;
+    width: 30%;
+}
+img.thumbnails {
+    max-height: 20%;
+    max-width: 20%;
+    border-radius: 5px; 
+}
+
+
+
+
+button {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+}

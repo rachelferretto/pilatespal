@@ -1,0 +1,20 @@
+
+
+<h2>Exercises</h2>
+
+<a href="/exercises/new"><button>Add an exercise for the PilatesPal community!</button></a> <br>
+
+
+
+
+<div class ='wrapper'>
+    <div class='exercises'>
+    <% @exercises.each do |exercise| %>
+
+        <a href="/exercises/<%= exercise.id %>">
+        <%= exercise.name %></a>
+
+        <img class ="thumbnails" src= "<%= exercise.image_url%>">
+    <% end %>
+    </div>
+</div>

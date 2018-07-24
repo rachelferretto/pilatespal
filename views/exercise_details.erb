@@ -1,0 +1,40 @@
+<h2><%= @exercise['name']%> </h2>
+
+<img src="<%= @exercise['image_url'] %>" alt= "">
+
+
+<div class='instructions'>
+  <p> Details: </p>
+    <ul>
+        <li>Level: <%= @exercise['level']%></li>
+        <li>Focus Areas: <%= @exercise['muscle_groups']%></li>
+        <li>Reps: <%= @exercise['reps']%></li>
+        <li>Instructions: <%= @exercise['description']%></li>
+    </ul>
+
+</div>
+
+
+
+
+
+<form action="/comments" method= "post">
+<input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
+    <label for=""> What do you think? </label>
+    <textarea name="content"></textarea>
+    <button> Post </button>
+    </form>
+
+
+
+<p>COMMENTS: </p>
+    <% @comments.each do |comment| %>
+<p>
+    <%= comment['content']  %> </p><br>
+
+<p><%= comment['comment_time']%></p>
+
+<a href="/comment/<%= params[:id] %>"> Delete Comment </a>
+
+<p> Posted by <%= %> </p>
+<% end %>
