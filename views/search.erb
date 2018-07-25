@@ -1,1 +1,7 @@
 <h2> Search Exercises </h2>
+
+
+<% @exercises.each do |exercise| %>
+<%=@search%> <%#input from searchbar%>
+<% exercise.name%>
+<%end%>

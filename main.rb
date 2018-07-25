@@ -26,6 +26,7 @@ helpers do
     else
       false
     end
+
   end
 
 end
@@ -39,8 +40,10 @@ get '/about' do
   erb :about
 end
 
-get '/search' do
-  
+
+post '/search' do
+  @exercises = Exercise.all
+  @search = params[:search]
   erb :search
 end
 
