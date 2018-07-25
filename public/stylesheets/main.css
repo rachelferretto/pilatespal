@@ -15,6 +15,7 @@ header {
 .current-user {
     text-align: right;
     padding: 10px;
+    margin-right: 5vw;
 }
 aside {
     display: block;
@@ -40,7 +41,6 @@ nav ul li {
 }
 
 
-
 a {
     display: inline;
     text-decoration: none;
@@ -52,12 +52,14 @@ a {
     max-width: 90%;
     margin: 0 auto;
 }
+
 .exercises {
     display: flex;
     flex-wrap: wrap;
     margin: auto;
     text-align: center;
 }
+
 .exercises a {
     height: 30%;
     width: 30%;
@@ -115,4 +117,5 @@ footer {
 .new {
     padding: 10px;
 }
+
 

@@ -13,7 +13,7 @@
    <nav>
       <ul> 
         <li><a href="/">Home</a></li>
-        <li><a href="/about">About myPilatesPal</a></li>
+        <li><a href="/about">About myPilatesPal.</a></li>
         <li><a href="/signup">Sign-up!</a></li>
       </ul>
     </nav>
@@ -22,7 +22,8 @@
 <div class="current-user">
   <% if logged_in? %>
 
-  Logged in as <%= current_user.email %>
+  <span>Logged in as <%= current_user.email %></span><br>
+ <span><a href="/my_program">View myProgram.</a></span>
   <form action="/session" method="post">
     <input type="hidden" name= "_method" value = "delete">
     <button>Logout </button>

@@ -10,6 +10,7 @@ require_relative 'models/user'
 require_relative 'models/exercise'
 require_relative 'models/like'
 require_relative 'models/comment'
+require_relative 'models/program'
 
 enable :sessions
 
@@ -24,7 +25,6 @@ helpers do
     else
       false
     end
-
   end
 
 end
@@ -37,6 +37,17 @@ end
 get '/about' do
   erb :about
 end
+
+get '/my_program' do
+  erb :my_program
+end
+
+post '/my_program' do
+  @program.user_id = current_user.id
+  @program.exercise_id = params[:exercise_id]
+ 
+end
+
 
 get '/exercises/new' do
   redirect '/login' unless logged_in?
@@ -52,6 +63,7 @@ post '/exercises' do
   exercise.reps = params[:reps]
   exercise.muscle_groups = params[:muscle_groups]
   exercise.description = params[:description]
+  exercise.user_id = current_user.id
   exercise.save
   redirect '/'
 end
@@ -63,6 +75,7 @@ get '/exercises/:id' do
   redirect '/login' unless logged_in?
   @exercise = Exercise.find(params[:id])
   @comments = @exercise.comments
+  @likes = @exercise.likes
   erb :exercise_details
 end
 
@@ -90,11 +103,14 @@ put '/exercises/:id' do
   redirect "/exercises/#{params[:id]}"
 end
 
-get '/signup' do
-  
+post '/signup' do
+  @program = Program.new
+  user = User.new
+  user.email = params[:email]
+  user.password = params[:password]
+  user.save
   erb :signup
 end
-
 
 
 post '/comments' do
@@ -146,6 +162,7 @@ delete '/session' do
   session[:user_id] = nil
   redirect '/login'
 end
+
 
 
 

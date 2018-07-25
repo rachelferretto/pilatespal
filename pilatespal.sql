@@ -20,7 +20,8 @@ CREATE TABLE programs (
     id SERIAL4 PRIMARY KEY,
     user_id INTEGER,
     exercise_id INTEGER,
-    FOREIGN KEY (exercise_id) REFERENCES exercises (id) 
+    FOREIGN KEY (exercise_id) REFERENCES exercises (id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 
