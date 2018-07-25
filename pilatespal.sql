@@ -10,8 +10,7 @@ CREATE TABLE exercises (
     description VARCHAR(500),
     user_id INTEGER,
     program_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (program_id) REFERENCES programs (id)
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 
@@ -50,4 +49,12 @@ CREATE TABLE comments (
     comment_time VARCHAR(100),
     FOREIGN KEY (exercise_id) REFERENCES exercises (id) ON DELETE RESTRICT,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT
+);
+
+CREATE TABLE program_exercises (
+    id SERIAL4 PRIMARY KEY,
+    exercise_id INTEGER NOT NULL,
+    program_id INTEGER,
+    FOREIGN KEY (exercise_id) REFERENCES exercises (id),
+    FOREIGN KEY (program_id) REFERENCES programs (id)
 );

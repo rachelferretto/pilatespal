@@ -11,6 +11,7 @@ require_relative 'models/exercise'
 require_relative 'models/like'
 require_relative 'models/comment'
 require_relative 'models/program'
+require_relative 'models/program_exercise'
 
 enable :sessions
 
@@ -39,7 +40,12 @@ get '/about' do
 end
 
 post '/my_program' do
-  
+  myprogram = Program_exercise.new(
+   program_id: Program.find_by(user_id: current_user.id).id, 
+   exercise_id: params[:exercise_id]
+  )
+  myprogram.save
+  redirect "/exercises/#{params[:id]}"  
 end
 
 get '/my_program/' do
