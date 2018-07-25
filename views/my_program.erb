@@ -1,5 +1,6 @@
 <h2> myProgram </h2>
 
- <p><% user.program.exercise.name %></p>
-
+ <% @myprogram.exercises.each do |exercise| %>
     
+       <a href="/exercises/<%= params['id']%>"> <%= exercise.name %></a>
+ <% end %>

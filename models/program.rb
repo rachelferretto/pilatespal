@@ -1,5 +1,5 @@
 class Program < ActiveRecord::Base
-    has_many :exercise_programs
-    has_many :exercises, through: :exercise_programs
+    has_many :program_exercises
+    has_many :exercises, through: :program_exercises
     belongs_to :user
  end

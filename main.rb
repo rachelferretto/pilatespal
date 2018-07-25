@@ -40,15 +40,16 @@ get '/about' do
 end
 
 post '/my_program' do
-  myprogram = Program_exercise.new(
+  @myprogram = ProgramExercise.new(
    program_id: Program.find_by(user_id: current_user.id).id, 
    exercise_id: params[:exercise_id]
   )
-  myprogram.save
-  redirect "/exercises/#{params[:id]}"  
+  @myprogram.save
+  redirect "/my_program"  
 end
 
-get '/my_program/' do
+get '/my_program' do
+  @myprogram = Program.find_by(user_id: current_user.id)
   erb :my_program
 end
 
