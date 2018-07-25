@@ -8,7 +8,10 @@ CREATE TABLE exercises (
     muscle_groups VARCHAR(100),
     reps VARCHAR(50),
     description VARCHAR(500),
-    user_id INTEGER
+    user_id INTEGER,
+    program_id INTEGER,
+    FOREIGN KEY (user_id) REFERENCES users (id),
+    FOREIGN KEY (program_id) REFERENCES programs (id)
 );
 
 
@@ -19,9 +22,7 @@ INSERT INTO exercises (name, image_url, level, muscle_groups, reps, description)
 CREATE TABLE programs (
     id SERIAL4 PRIMARY KEY,
     user_id INTEGER,
-    exercise_id INTEGER,
-    FOREIGN KEY (exercise_id) REFERENCES exercises (id),
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 
@@ -36,7 +37,9 @@ CREATE TABLE users (
 CREATE TABLE likes (
     id SERIAL4 PRIMARY KEY,
     user_id INTEGER,
-    exercise_id INTEGER
+    exercise_id INTEGER,
+    FOREIGN KEY (exercise_id) REFERENCES exercises (id),
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
 CREATE TABLE comments (
@@ -45,5 +48,6 @@ CREATE TABLE comments (
     exercise_id INTEGER NOT NULL,
     user_id INTEGER,
     comment_time VARCHAR(100),
-    FOREIGN KEY (exercise_id) REFERENCES exercises (id) ON DELETE RESTRICT 
+    FOREIGN KEY (exercise_id) REFERENCES exercises (id) ON DELETE RESTRICT,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT
 );

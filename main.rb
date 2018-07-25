@@ -38,14 +38,12 @@ get '/about' do
   erb :about
 end
 
-get '/my_program' do
-  erb :my_program
+post '/my_program' do
+  
 end
 
-post '/my_program' do
-  @program.user_id = current_user.id
-  @program.exercise_id = params[:exercise_id]
- 
+get '/my_program/' do
+  erb :my_program
 end
 
 
@@ -67,8 +65,6 @@ post '/exercises' do
   exercise.save
   redirect '/'
 end
-
-
 
 
 get '/exercises/:id' do
@@ -103,13 +99,20 @@ put '/exercises/:id' do
   redirect "/exercises/#{params[:id]}"
 end
 
+get '/signup' do
+  erb :signup
+end
+
 post '/signup' do
-  @program = Program.new
   user = User.new
   user.email = params[:email]
   user.password = params[:password]
   user.save
-  erb :signup
+  program = Program.new(
+    user_id: user.id
+  )
+  program.save
+  redirect '/login'
 end
 
 
