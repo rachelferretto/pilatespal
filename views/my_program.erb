@@ -1,6 +1,17 @@
 <h2> myProgram </h2>
 
+
+<ul>
  <% @myprogram.exercises.each do |exercise| %>
     
-       <a href="/exercises/<%= params['id']%>"> <%= exercise.name %></a>
+       <li><a href="/exercises/<%= exercise.id %>"> <%= exercise.name %></a></li>
+        
+    
  <% end %>
+
+ </ul>
+
+ <form action ="/my_program/<%=@myprogram.id%>" method= "post"> 
+        <input type="hidden" name="_method" value = "delete">
+        <button>Clear program</button>
+        </form>

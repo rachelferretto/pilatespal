@@ -1,7 +1,7 @@
 <h2><%= @exercise['name']%> </h2>
-
-<img src="<%= @exercise['image_url'] %>" alt= "">
-
+<div class="exercise-image">
+    <img src="<%= @exercise['image_url'] %>" alt= "">
+</div>
 
 <div class='instructions'>
   <h4> EXERCISE DETAILS: </h4>
@@ -11,26 +11,29 @@
         <li>Reps: <%= @exercise['reps']%></li>
         <li>Instructions: <%= @exercise['description']%></li>
     </ul>
-
+    <p><%= @exercise.likes.count%> Likes</p>
 </div>
+
 <div class="save">
-<form action="/my_program" method= "post">
-<input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
-    <button> Save to myProgram</button>
+    <form action="/my_program" method= "post">
+        <input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
+        <button> Save to myProgram</button>
     </form>
 </div>
-    
 
+<div class="like">
+   <form action="/likes" method="post">
+        <input type="hidden" name="exercise_id" value="<%= @exercise.id %>">
+        <button>Like</button>
+    </form> 
 </div>
+
 
 <span> Exercise posted by <%= @exercise.user.email %>&hearts;</span>
 
-<p><%= @exercise.likes.count%> Likes</p>
 
-<form action="/likes" method="post">
-    <input type="hidden" name="exercise_id" value="<%= @exercise.id %>">
-    <button>Like</button>
-</form>
+
+
 
 <div class="options">
 

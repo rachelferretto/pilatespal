@@ -1,0 +1,14 @@
+  <h3> Beginners' Program </h3>
+
+<% @exercises.each do |exercise| %>
+
+    <% if exercise.level == "Beginner"%>
+    <ul>
+      
+        <li><a href="/exercises/<%= exercise.id %>">
+        <%= exercise.name %></li>
+    </ul>
+    <%end%>
+
+        
+<% end %>

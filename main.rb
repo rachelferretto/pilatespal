@@ -39,6 +39,12 @@ get '/about' do
   erb :about
 end
 
+get '/search' do
+  
+  erb :search
+end
+
+
 post '/my_program' do
   @myprogram = ProgramExercise.new(
    program_id: Program.find_by(user_id: current_user.id).id, 
@@ -51,6 +57,32 @@ end
 get '/my_program' do
   @myprogram = Program.find_by(user_id: current_user.id)
   erb :my_program
+end
+
+delete '/my_program/:id' do
+  myprogram = Program.where(user_id: current_user.id).first
+  ProgramExercise.where(program_id: myprogram).destroy_all
+  myprogram.destroy
+  program = Program.new
+  program.user_id = current_user.id
+  program.save
+  redirect '/my_program'
+end
+
+
+get '/beginner_program' do
+  @exercises = Exercise.all
+  erb :beginner_program
+end
+
+get '/intermediate_program' do
+  @exercises = Exercise.all
+  erb :intermediate_program
+end
+
+get '/advanced_program' do
+  @exercises = Exercise.all
+  erb :advanced_program
 end
 
 

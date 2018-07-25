@@ -10,7 +10,11 @@
     <br>
     <input type = "text" name="image_url" value="<% @exercise['image_url'] %>">
     <br>
-    <label for=""> Level (Beginner, Intermediate or Advanced?): </label>
+    <select name="level">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+    </select>
     <br>
     <input type = "text" name="level" value="<% @exercise['level']%>">
     <br>

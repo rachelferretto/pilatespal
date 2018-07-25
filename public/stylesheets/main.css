@@ -16,16 +16,20 @@ header {
     text-align: right;
     padding: 10px;
     margin-right: 5vw;
+   
 }
 aside {
     display: block;
     float: right;
-    padding: 5px;
+    padding: 10px;
+    width: 25%;
+    margin: 5px;
+    border-top: solid gray 1px;
 }
 
 h1 {
     font-family: 'Cabin Sketch', cursive;
-    font-size: 55px;
+    font-size: 60px;
     text-align: center;
 }
 
@@ -49,7 +53,7 @@ a {
 
 .wrapper {
     display: flex;
-    max-width: 90%;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -68,8 +72,8 @@ a {
 
 
 img.thumbnails {
-    max-height: 95%;
-    max-width: 95%;
+    max-height: 97%;
+    max-width: 97%;
     border-radius: 5px; 
 }
 
@@ -100,9 +104,13 @@ input {
     padding: 5px;
 }
 
+.exercise-image img {
+    max-width: 70%;
+}
+
 .options {
    text-align: right;
-   margin-right: 2vw;
+   margin-right: 25%;
 }
 
 .add-comment {
@@ -112,10 +120,16 @@ input {
 
 footer {
     clear: both;
+    border-top: grey solid 1px;
+    padding: 5px;
 }
 
 .new {
     padding: 10px;
 }
 
-
+.instructions {
+    border: solid grey 2px;
+    width: 70%;
+    padding: 10px;
+}
