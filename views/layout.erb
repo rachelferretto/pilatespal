@@ -10,16 +10,7 @@
   <header>
   <h1> myPilatesPal. </h1>
   <p> Take fitness with you anywhere.</p>
-   <nav>
-      <ul> 
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About myPilatesPal.</a></li>
-        <li><a href="/signup">Sign-up!</a></li>
-      </ul>
-    </nav>
-</header>
-<body>
-<div class="current-user">
+  <div class="current-user">
   <% if logged_in? %>
 
   <span>Logged in as <%= current_user.email %></span><br>
@@ -37,22 +28,47 @@
   <%end%>
 </div>
 
-
-  <aside>
-    <h3> Sample programs </h3>
+   <nav>
       <ul> 
-        <li><a href="/beginner_program">Beginners' program</a></li>
-        <li><a href="/intermediate_program">Intermediate program</a></li>
-        <li><a href="/advanced_program">Advanced program</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About myPilatesPal.</a></li>
+        <li><a href="/signup">Sign-up!</a></li>
       </ul>
-    <h3> Related Articles </h3>
-    <ul>
-      <li><a href="https://www.pilates.com/BBAPP/V/pilates/benefits-of-pilates.html"></a>Benefits of pilates</li>
-      <li><a href=""></a></li>
-      <li><a href=""></a></li>
-    </ul>
+    </nav>
+</header>
 
-  </aside>
+<body>
+  <div class ="side-panel">
+  
+    <div class="search">
+      <p> Search the PilatesPal database:
+          <form action='/search' method="post"> 
+            <input type = "text" name="search"><button> Search </button>
+          </form>
+      Can't find what you're looking for? <a href="/exercises/new"><button>Add an exercise to PilatesPal!</button></a>
+      </p>
+    </div>
+
+
+
+    <aside>
+
+      <h3> Sample programs </h3>
+        <ul> 
+          <li><a href="/beginner_program">Beginners' program</a></li>
+          <li><a href="/intermediate_program">Intermediate program</a></li>
+          <li><a href="/advanced_program">Advanced program</a></li>
+        </ul>
+      <h3> Related Articles </h3>
+      <ul>
+        <li><a href="https://www.pilates.com/BBAPP/V/pilates/benefits-of-pilates.html">Benefits of pilates</a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+      </ul>
+
+    </aside>
+
+  </div>
 
 
 

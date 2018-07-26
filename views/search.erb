@@ -1,7 +1,22 @@
-<h2> Search Exercises </h2>
+<h2> Search Results </h2>
 
 
+<ul>
 <% @exercises.each do |exercise| %>
-<%=@search%> <%#input from searchbar%>
-<% exercise.name%>
+
+    <%if exercise.name.downcase.include?(@search_word) %>
+     <li><a href="/exercises/<%= exercise.id %>"><%= exercise.name%></a></li>
+    
+    <% @results = @results +1%>
+    
+     <%end%>
+
+    
 <%end%>
+</ul>
+
+
+<span> <%=@results%> results found. </span>
+
+
+

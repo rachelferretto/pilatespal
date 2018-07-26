@@ -7,14 +7,16 @@ body {
     font-family: 'Anaheim', sans-serif;
     padding: 5px;
     font-size: 18px;
+    color: #50514F;
 }
 header {
     text-align: center;
 }
 
 nav {
-    background-color: #EEEEFF;
-    padding: 4px;
+    background-color: #E8D6CB;
+    padding: 3px;
+    text-align: center;
 }
 .current-user {
     text-align: right;
@@ -33,8 +35,9 @@ aside {
     float: right;
     padding: 10px;
     width: 25%;
-    margin: 5px;
-    border-top: solid gray 1px;
+    margin-right: 5px;
+    border: solid #8B8982 1px;
+    border-radius: 5px;
 }
 
 h1 {
@@ -65,9 +68,14 @@ a {
 a:hover {
     font-size: 22px;
 }
+.search {
+    background-color: #8B8982;
+    padding: 8px;
+    border-radius: 5px;  
+}
 
 .wrapper {
-    display: flex;
+    display: block;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -83,6 +91,7 @@ a:hover {
     height: 30%;
     width: 30%;
     font-size: 20px;
+    float: left;
 }
 
 
@@ -148,3 +157,5 @@ footer {
     width: 70%;
     padding: 10px;
 }
+
+

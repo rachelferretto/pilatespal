@@ -43,7 +43,8 @@ end
 
 post '/search' do
   @exercises = Exercise.all
-  @search = params[:search]
+  @search_word = params[:search].downcase
+  @results = 0
   erb :search
 end
 
@@ -148,6 +149,7 @@ end
 post '/signup' do
   user = User.new
   user.email = params[:email]
+  user.errors.details[:email]
   user.password = params[:password]
   user.save
   program = Program.new(
