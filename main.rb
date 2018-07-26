@@ -57,9 +57,9 @@ post '/my_program' do
   if ProgramExercise.exists?(exercise_id: params[:exercise_id])
     redirect "/my_program"
   else
-
   @myprogram.save
   end
+  redirect '/'
 end
 
 get '/my_program' do
