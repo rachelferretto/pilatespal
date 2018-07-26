@@ -54,8 +54,12 @@ post '/my_program' do
    program_id: Program.find_by(user_id: current_user.id).id, 
    exercise_id: params[:exercise_id]
   )
+  if ProgramExercise.exists?(exercise_id: params[:exercise_id])
+    redirect "/my_program"
+  else
+
   @myprogram.save
-  redirect "/my_program"  
+  end
 end
 
 get '/my_program' do
@@ -95,6 +99,11 @@ get '/exercises/new' do
   erb :new
 end
 
+get '/exists' do
+  erb :exercise_exists
+end
+
+
 post '/exercises' do
   redirect '/login' unless logged_in?
   exercise = Exercise.new
@@ -105,17 +114,13 @@ post '/exercises' do
   exercise.muscle_groups = params[:muscle_groups]
   exercise.description = params[:description]
   exercise.user_id = current_user.id
-  if Exercise.exists?(:name.downcase => "#{exercise.name.downcase}")
-    exercise.destroy
-    redirect '/exists'
-  else
-  exercise.save
-  end
+    if Exercise.exists?(:name => "#{exercise.name}")
+      exercise.destroy
+      redirect '/exists'
+    else
+      exercise.save
+    end
   redirect '/'
-end
-
-get '/exists' do
-  erb :exercise_exists
 end
 
 
