@@ -35,11 +35,13 @@ nav {
     padding: 10px;
     border: solid #8B8982 1px;
     border-radius: 5px;
+    width: 100%;
 }
 .search {
     background-color: #8B8982;
     padding: 8px;
     border-radius: 5px;  
+    width: 100%;
 }
 
 .side-bar {
@@ -78,7 +80,6 @@ a:hover {
     font-size: 22px;
 }
 
-
 .wrapper {
     display: block;
     max-width: 100%;
@@ -93,8 +94,8 @@ a:hover {
 }
 
 .exercises a {
-    height: 30%;
-    width: 30%;
+    height: 33%;
+    width: 33%;
     font-size: 20px;
     float: left;
 }
@@ -166,4 +167,9 @@ footer {
 
 p {
     margin: 0;
+}
+
+
+@media screen and (min-width: 480px) {
+    .side-bar {width: 20%; float: center;}
 }
