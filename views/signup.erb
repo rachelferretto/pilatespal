@@ -1,5 +1,10 @@
 <h2> Sign Up to myPilatesPal. </h2>
 
+<%#loop through user.errors.messages%>
+<% @user.errors.messages.each do |error|%> 
+<p><%= error %></p>
+<%end%>
+
 <div class="new-user">
 
     <form action="/signup" method= "post">

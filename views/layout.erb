@@ -10,14 +10,14 @@
   <header>
   <h1> myPilatesPal. </h1>
   <p> Take fitness with you anywhere.</p>
+
   <div class="current-user">
   <% if logged_in? %>
-
-  <span>Logged in as <%= current_user.email %></span><br>
+  <span>Logged in as: <%= current_user.email %></span><br>
  <span><a href="/my_program">View myProgram</a></span>
-  <form action="/session" method="post">
-    <input type="hidden" name= "_method" value = "delete">
-    <button>Logout </button>
+    <form action="/session" method="post">
+      <input type="hidden" name= "_method" value = "delete">
+      <button>Logout </button>
     </form>
   <%else%>
 
@@ -35,11 +35,13 @@
         <li><a href="/signup">Sign-up!</a></li>
       </ul>
     </nav>
+
 </header>
 
 <body>
-  <div class ="side-panel">
-  
+
+<div class="side-bar">
+
     <div class="search">
       <p> Search the PilatesPal database:
           <form action='/search' method="post"> 
@@ -48,10 +50,10 @@
       Can't find what you're looking for? <a href="/exercises/new"><button>Add an exercise to PilatesPal!</button></a>
       </p>
     </div>
+  
 
+    <div class = "aside">
 
-
-    <aside>
 
       <h3> Sample programs </h3>
         <ul> 
@@ -66,9 +68,9 @@
         <li><a href=""></a></li>
       </ul>
 
-    </aside>
+    </div>
+</div>
 
-  </div>
 
 
 

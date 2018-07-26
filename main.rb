@@ -70,7 +70,7 @@ delete '/my_program/:id' do
   program = Program.new
   program.user_id = current_user.id
   program.save
-  redirect '/my_program'
+  redirect '/'
 end
 
 
@@ -105,8 +105,17 @@ post '/exercises' do
   exercise.muscle_groups = params[:muscle_groups]
   exercise.description = params[:description]
   exercise.user_id = current_user.id
+  if Exercise.exists?(:name.downcase => "#{exercise.name.downcase}")
+    exercise.destroy
+    redirect '/exists'
+  else
   exercise.save
+  end
   redirect '/'
+end
+
+get '/exists' do
+  erb :exercise_exists
 end
 
 
@@ -143,17 +152,17 @@ put '/exercises/:id' do
 end
 
 get '/signup' do
+  @user= User.new
   erb :signup
 end
 
 post '/signup' do
-  user = User.new
-  user.email = params[:email]
-  user.errors.details[:email]
-  user.password = params[:password]
-  user.save
+  @user = User.new
+  @user.email = params[:email]
+  @user.password = params[:password]
+  @user.save
   program = Program.new(
-    user_id: user.id
+    user_id: @user.id
   )
   program.save
   redirect '/login'
@@ -183,7 +192,6 @@ post '/likes' do
   like.exercise_id = params[:exercise_id]
   like.user_id = current_user.id
   like.save
-
   redirect "/exercises/#{params[:exercise_id]}"
 end
 

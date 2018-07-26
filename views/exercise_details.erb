@@ -17,7 +17,7 @@
 <div class="save">
     <form action="/my_program" method= "post">
         <input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
-        <button> Save to myProgram</button>
+        <button id="save" onclick="saved()"> Save to myProgram</button>
     </form>
 </div>
 
@@ -50,11 +50,11 @@
 </div>
 
 <div class="add-comment">
-<form action="/comments" method= "post">
-<input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
-    <label for=""> What do you think? </label><br>
-    <textarea name="content"></textarea><br>
-    <button> Post </button>
+    <form action="/comments" method= "post">
+        <input type="hidden" name="exercise_id" value="<%= @exercise['id'] %>">
+        <label for=""> What do you think? </label><br>
+        <textarea name="content"></textarea><br>
+        <button> Post </button>
     </form>
 </div>
 
@@ -72,3 +72,12 @@
     </form>
 </p>
 <% end %>
+
+
+<script>
+function saved() {
+    document.getElementById("save").style.color = "pink";
+    document.getElementById("save").name = "saved";
+
+}
+</script>

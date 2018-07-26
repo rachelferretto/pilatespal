@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
     has_secure_password
     validates :email, 
-        :length => {:minimum => 3, :maximum => 254},
-        :uniqueness => {:case_sensitive => false, :message => "Email already exists, please sign in"}
-    validates :email, :format => /@/
+        :format => {:with => /@/, :message => "Please enter a valid Email address"},
+        :presence => {:message => "Enter your email address" },
+        :uniqueness => {:message => "Email already exists, please sign in"}
     validates :password, confirmation: true, length: { minimum: 8}
 end
