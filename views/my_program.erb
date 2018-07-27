@@ -5,6 +5,7 @@
  <% @myprogram.exercises.each do |exercise| %>
     
        <li><a href="/exercises/<%= exercise.id %>"> <%= exercise.name %></a></li>
+       <img class="thumbnail" src="<%= exercise.image_url%>">
         
     
  <% end %>

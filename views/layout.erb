@@ -37,10 +37,13 @@
     </nav>
 
 </header>
-
 <body>
 
 <div class="side-bar">
+    <div class ="weather">
+      <p>It's currently <span><%= @weather %>c</span> in Melbourne <br><%=Time.now.strftime("%H:%M, %-d %b")%></p>
+
+    </div>
 
     <div class="search">
       <p> Search the PilatesPal database:
@@ -56,11 +59,11 @@
 
 
       <h3> Sample programs </h3>
-        <ul> 
-          <li><a href="/beginner_program">Beginners' program</a></li>
-          <li><a href="/intermediate_program">Intermediate program</a></li>
-          <li><a href="/advanced_program">Advanced program</a></li>
-        </ul>
+        
+          <p><a href="/beginner_program"> Beginners' program</a></p>
+          <p><a href="/intermediate_program"> Intermediate program</a></p>
+          <p><a href="/advanced_program"> Advanced program</a></p>
+        
       <h3> Related Articles </h3>
       <ul>
         <li><a href="https://www.pilates.com/BBAPP/V/pilates/benefits-of-pilates.html">Benefits of pilates</a></li>

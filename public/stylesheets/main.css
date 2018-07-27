@@ -36,12 +36,15 @@ nav {
     border: solid #8B8982 1px;
     border-radius: 5px;
     width: 100%;
+    margin-top: 10px;
 }
 .search {
+    margin-top: 10px;
     background-color: #8B8982;
     padding: 8px;
     border-radius: 5px;  
     width: 100%;
+    text-align: center;
 }
 
 .side-bar {
@@ -94,7 +97,7 @@ a:hover {
 }
 
 .exercises a {
-    height: 33%;
+    height: 25%;
     width: 33%;
     font-size: 20px;
     float: left;
@@ -105,6 +108,9 @@ img.thumbnails {
     max-height: 97%;
     max-width: 97%;
     border-radius: 5px; 
+}
+.thumbnail {
+    max-width: 20%;
 }
 
 
@@ -120,6 +126,14 @@ button {
     font-size: 14px;
 }
 
+.button:hover {background-color: #8B8982}
+
+.button:active {
+  background-color: #E8D6CB;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 p {
     font-size: 18px;
 }
@@ -127,6 +141,10 @@ p {
 
 .login {
     text-align: center;
+    background-color: lightgrey;
+    border-radius: 5px;
+    width: 75%;
+    padding: 10px;
 }
 
 input {

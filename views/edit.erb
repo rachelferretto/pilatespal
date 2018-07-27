@@ -1,14 +1,14 @@
-<h2> Edit Exercise </h2>
+<h2> Edit <%= @exercise.name %> </h2>
 
 <form action='/exercises/<%= @exercise['id']%>' method="post"> 
     <input type = "hidden" name="_method" value="put">
     <label for=""> Exercise name: </label>
     <br>
-    <input type = "text" name="name" value="<% @exercise['name'] %>">
+    <input type = "text" name="name" value="<%= @exercise.name %>">
     <br>
     <label for=""> Image URL:</label>
     <br>
-    <input type = "text" name="image_url" value="<% @exercise['image_url'] %>">
+    <input type = "text" name="image_url" value="<%= @exercise['image_url'] %>">
     <br>
     <select name="level">
         <option value="Beginner">Beginner</option>
@@ -16,19 +16,19 @@
         <option value="Advanced">Advanced</option>
     </select>
     <br>
-    <input type = "text" name="level" value="<% @exercise['level']%>">
+    <input type = "text" name="level" value="<%= @exercise['level']%>">
     <br>
     <label for=""> Targeted Muscles/Focus areas: </label>
     <br>
-    <input type = "text" name="muscle_groups" value="<% @exercise['muscle_groups']%>">
+    <input type = "text" name="muscle_groups" value="<%= @exercise['muscle_groups']%>">
     <br>
     <label for=""> Reps: </label>
     <br>
-    <input type = "text" name="reps" value="<% @exercise['reps']%>">
+    <input type = "text" name="reps" value="<%= @exercise['reps']%>">
     <br>
     <label for=""> Instructions:</label>
     <br>
-    <textarea name="description" value="<% @exercise['description']%>"></textarea>
+    <textarea name="description" value="<%= @exercise['description']%>"></textarea>
     <br>
 
 
