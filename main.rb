@@ -32,7 +32,7 @@ helpers do
 
   def get_weather
     @search_weather = HTTParty.get("http://www.bom.gov.au/fwo/IDV60901/IDV60901.95936.json")
-    @weather = @search_weather["observations"]["data"][18]["air_temp"]  
+    @weather = @search_weather["observations"]["data"][0]["air_temp"]  
   end
 
 end
@@ -50,10 +50,10 @@ end
 
 
 post '/search' do
+  get_weather
   @exercises = Exercise.all
   @search_word = params[:search].downcase
   @results = 0
-  get_weather
   erb :search
 end
 
@@ -114,6 +114,7 @@ get '/exercises/new' do
 end
 
 get '/exists' do
+  get_weather
   erb :exercise_exists
 end
 
