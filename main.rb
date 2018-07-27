@@ -160,7 +160,6 @@ put '/exercises/:id' do
 end
 
 get '/signup' do
-  get_weather
   @user= User.new
   erb :signup
 end
