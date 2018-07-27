@@ -30,27 +30,21 @@ helpers do
 
   end
 
-  def get_weather
-    @search_weather = HTTParty.get("http://www.bom.gov.au/fwo/IDV60901/IDV60901.95936.json")
-    @weather = @search_weather["observations"]["data"][0]["air_temp"]  
-  end
+  
 
 end
 
 get '/' do
   @exercises = Exercise.all
-  get_weather
   erb :index
 end
 
 get '/about' do
-  get_weather
   erb :about
 end
 
 
 post '/search' do
-  get_weather
   @exercises = Exercise.all
   @search_word = params[:search].downcase
   @results = 0
@@ -72,7 +66,6 @@ post '/my_program' do
 end
 
 get '/my_program' do
-  get_weather
   @myprogram = Program.find_by(user_id: current_user.id)
   erb :my_program
 end
@@ -89,38 +82,32 @@ end
 
 
 get '/beginner_program' do
-  get_weather
   @exercises = Exercise.all
   erb :beginner_program
 end
 
 get '/intermediate_program' do
-  get_weather
   @exercises = Exercise.all
   erb :intermediate_program
 end
 
 get '/advanced_program' do
-  get_weather
   @exercises = Exercise.all
   erb :advanced_program
 end
 
 
 get '/exercises/new' do
-  get_weather
   redirect '/login' unless logged_in?
   erb :new
 end
 
 get '/exists' do
-  get_weather
   erb :exercise_exists
 end
 
 
 post '/exercises' do
-  get_weather
   redirect '/login' unless logged_in?
   exercise = Exercise.new
   exercise.name = params[:name]
@@ -141,7 +128,6 @@ end
 
 
 get '/exercises/:id' do
-  get_weather
   redirect '/login' unless logged_in?
   @exercise = Exercise.find(params[:id])
   @comments = @exercise.comments
@@ -157,7 +143,6 @@ delete '/exercises/:id' do
 end
 
 get '/exercises/:id/edit' do
-  get_weather
   @exercise = Exercise.find(params[:id])
   erb :edit
 end
@@ -221,7 +206,6 @@ end
 
 
 get '/login' do 
-  get_weather
   if logged_in?
     redirect '/'
   end

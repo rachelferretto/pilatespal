@@ -29,6 +29,9 @@ nav {
     border-radius: 5px;
     width: 70%;
 }
+.date {
+    padding: 5px;
+}
 .aside {
     display: inline-block;
     padding: 10px;
