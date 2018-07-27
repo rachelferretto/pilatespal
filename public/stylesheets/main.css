@@ -82,33 +82,33 @@ a {
 }
 
 a:hover {
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .wrapper {
     display: block;
-    max-width: 100%;
-    margin: 0 auto;
+    max-width: 80%;
+    margin-left: 5px;
+    height: 100%;
 }
 
 .exercises {
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
-    text-align: center;
+    height: 60%;
 }
 
 .exercises a {
     height: 25%;
     width: 33%;
-    font-size: 20px;
+    font-size: 22px;
     float: left;
 }
 
 
 img.thumbnails {
-    max-height: 97%;
-    max-width: 97%;
+    height: 25vh;
+    width: 22vw;
     border-radius: 5px; 
 }
 .thumbnail {
