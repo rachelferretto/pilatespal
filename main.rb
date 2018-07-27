@@ -3,7 +3,7 @@ require 'sinatra'
 require 'pg'
 require 'pry'
 require 'httparty'
-require 'sinatra/reloader'
+#require 'sinatra/reloader'
 
 
 require_relative 'db_config'
@@ -59,7 +59,6 @@ end
 
 
 post '/my_program' do
-  get_weather
   @myprogram = ProgramExercise.new(
    program_id: Program.find_by(user_id: current_user.id).id, 
    exercise_id: params[:exercise_id]
